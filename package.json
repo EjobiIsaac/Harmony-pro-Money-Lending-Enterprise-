@@ -1,12 +1,14 @@
 {
-  "name": "harmony-microfinance-pro",
-  "version": "8.0.0",
-  "description": "HARMONY MICROFINANCE PRO v8 - Isaac Savvy",
+  "name": "harmony",
+  "version": "1.0.0",
+  "description": "HARMONY MICROFINANCE - Loan Management System",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . HARMONY --platform=win32 --arch=x64 --overwrite --out=dist"
+    "build": "electron-packager . HARMONY --platform=win32 --arch=x64 --overwrite --out=dist --icon=icon.ico"
   },
+  "author": "HARMONY MICROFINANCE",
+  "license": "MIT",
   "devDependencies": {
     "electron": "^28.0.0",
     "electron-packager": "^17.1.2"
