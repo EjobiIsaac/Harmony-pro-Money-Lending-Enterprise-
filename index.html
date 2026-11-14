@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HARMONY PRO v8 - ENTERPRISE</title>
+<title>HARMONY - ENTERPRISE</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 body{background:#eef4ef}
@@ -36,23 +36,52 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{background:#eef4ef;p
 </style>
 </head>
 <body>
+<!-- LICENSE LOCK - Isaac Savvy Soft -->
+<div id="licenseLock" style="position:fixed;inset:0;background:#0e4d26;display:flex;align-items:center;justify-content:center;padding:20px;z-index:100000">
+  <div style="background:white;width:100%;max-width:360px;border-radius:22px;padding:28px 22px;text-align:center">
+    <div style="font-size:34px">🤝</div>
+    <h2 style="color:#0b7a42">HARMONY MICROFINANCE</h2>
+    <p><b> ENTERPRISE</b><br>Isaac Savvy Soft Technologies LTD<br>Tel: 0770960837</p>
+    <p style="margin:12px 0;font-weight:900">ENTER LICENSE KEY TO ACTIVATE</p>
+    <input id="licenseInput" placeholder="IS-HARM-XXXX-XXXX" style="width:100%;padding:13px;border:1.5px solid #d8d8d8;border-radius:10px;margin-bottom:12px;text-align:center;font-size:16px;text-transform:uppercase">
+    <button onclick="checkLicense()" style="width:100%;padding:16px;background:#0b7a42;color:white;border:none;border-radius:12px;font-weight:900;font-size:16px">✅ ACTIVATE NOW</button>
+    <p id="licenseMsg" style="color:red;font-weight:bold;margin-top:8px"></p>
+    <p style="font-size:12px;margin-top:10px">No key? Call / WhatsApp 0770960837</p>
+  </div>
+</div>
+<script>
+  var HARMONY_KEYS = ["IS-HARM-4821-9375","IS-HARM-1111-2222","IS-HARM-3333-4444"];
+function checkLicense(){
+  var k = document.getElementById('licenseInput').value.trim().toUpperCase();
+  if(HARMONY_KEYS.includes(k)){
+    localStorage.setItem('harmony_licensed','YES');
+    localStorage.setItem('harmony_key_used',k);
+    document.getElementById('licenseLock').style.display='none';
+    alert('✅ Activated! Welcome to Harmony');
+  } else {
+    document.getElementById('licenseMsg').innerText='❌ Wrong Key! Call 0770960837';
+  }
+}
+if(localStorage.getItem('harmony_licensed')==='YES'){
+  document.getElementById('licenseLock').style.display='none';
+}
+</script>
+<!-- END LICENSE LOCK -->
 <div id="login">
 <div class="login-card">
 <div class="logo">🤝</div>
 <h1>HARMONY <span class="black">MICROFINANCE</span></h1>
-<div class="sub"><b>PRO v8 - ENTERPRISE</b><br>Management: Isaac Savvy<br>Tel: 0784748006 - Kampala</div>
+<div class="sub"><b>ENTERPRISE</b><br>Management: Isaac Savvy<br>Tel: 0770960837 - Mbale</div>
 <input id="pwd" class="input-box" type="password" placeholder="Enter Password" value="1234">
 <p style="font-size:12px;color:#888">Default: 1234 | Master: 9999</p>
 <button type="button" class="btn-unlock" onclick="var e=document.getElementById('pwd').value.trim(); if(e==='1234'||e==='9999'||e===''){document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';document.getElementById('loginMsg').innerHTML='';}else{document.getElementById('loginMsg').innerHTML='❌ Wrong Password! Try 1234';}">🔒 UNLOCK ENTERPRISE - TAP TO OPEN</button>
-<button type="button" onclick="document.getElementById('login').style.display='none';document.getElementById('app').style.display='block';" style="width:100%;padding:10px;margin-top:8px;background:#ffcc33;border:none;border-radius:10px;font-weight:900;cursor:pointer">⚡ FORCE OPEN - NO PASSWORD</button>
 <p id="loginMsg" style="color:red;font-weight:bold;margin-top:8px"></p>
 <p style="margin-top:10px;font-size:12px"><a href="#" onclick="document.getElementById('pwd').value='1234';alert('✅ Reset to 1234! Now tap UNLOCK');return false;" style="color:#0b7a42;font-weight:bold">Forgot Password? Click here to Reset to 1234</a></p>
-</div>
-</div>
+</div></div>
 <div id="app">
 <div class="top">
-<div class="center-brand">HARMONY MICROFINANCE PRO v8
-<small class="blue-text">Management: Isaac Savvy • Tel: 0784748006</small>
+<div class="center-brand">HARMONY MICROFINANCE 
+<small class="blue-text">Management: Isaac Savvy • Tel: 0770960837</small>
 <small id="date"></small>
 </div>
 <button type="button" onclick="document.getElementById('nav').classList.toggle('open')" style="position:absolute;right:10px;top:12px;background:#ffcc33;border:none;padding:7px 10px;border-radius:7px">☰</button>
@@ -77,7 +106,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{background:#eef4ef;p
 <div class="kpi" style="border-left-color:red"><div><small>DEFAULTERS</small><h3 id="kDef">0</h3></div>🚨</div>
 <div class="kpi"><div><small>PROFIT</small><h3 id="kProfit">UGX 0</h3></div>💎</div>
 </div>
-<div class="card"><h3>HARMONY PRO v8 - ENTERPRISE</h3><p>✅ Password Lock + Logout + Settings + WhatsApp + Defaulters + Export + Daily Report + Receipts</p><br>
+<div class="card"><h3>HARMONY  - ENTERPRISE</h3><p>✅ Password Lock + Logout + Settings + WhatsApp + Defaulters + Export + Daily Report + Receipts</p><br>
 <button type="button" class="btn btn-green" onclick="showPage('clients')">➕ New Client</button>
 <button type="button" class="btn btn-gold" onclick="exportExcel()">📊 Export Excel</button>
 <button type="button" class="btn btn-red" onclick="showPage('defaulters')">🚨 Defaulters</button>
@@ -85,8 +114,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{background:#eef4ef;p
 </div>
 <div class="card"><h3>🔍 Quick Search</h3><input id="quickSearch" placeholder="Search client name or phone..." oninput="quickSearchClient()"><div id="searchResult"></div></div>
 <div class="card"><h3>Recent Clients</h3><div id="recent">No clients yet</div></div>
-</div>
-<div id="page-clients" class="hidden">
+</div><div id="page-clients" class="hidden">
 <div class="card"><h3>➕ Add Client</h3><input id="cName" placeholder="Full Name *"><input id="cPhone" placeholder="Phone * e.g 0784748006"><button type="button" class="btn btn-green" onclick="saveClient()">💾 SAVE CLIENT NOW</button><p id="cMsg" style="color:green;font-weight:bold"></p></div>
 <div class="card"><h3>All Clients</h3><input id="clientSearch" placeholder="🔍 Search clients..." oninput="renderAll()"><table><thead><tr><th>#</th><th>Name</th><th>Phone</th><th>Del</th></tr></thead><tbody id="clientTable"></tbody></table></div>
 </div>
@@ -111,18 +139,16 @@ table{width:100%;border-collapse:collapse;font-size:13px}th{background:#eef4ef;p
 </div>
 <div id="page-settings" class="hidden">
 <div class="card"><h3>⚙️ Settings - Company Profile</h3><label>Company Name</label><input id="sCompany" value="HARMONY MICROFINANCE ENTERPRISE"><label>Phone</label><input id="sPhone" value="0784748006"><label>Manager Name</label><input id="sManager" value="Isaac Savvy"><label>New Password (leave empty to keep current)</label><input id="sPass" placeholder="New Password"><button type="button" class="btn btn-green" onclick="saveSettings()">💾 Save Settings</button><p style="margin-top:10px">Current Password: <b id="curPass">1234</b></p><p style="font-size:12px;color:#888">Master key 9999 always works.</p></div>
-<div class="card"><h3>ℹ️ About</h3><p><b>HARMONY PRO v8</b><br>Built for Money Lenders in Uganda<br>Manager: Isaac Savvy<br>Tel: 0784748006</p></div>
+<div class="card"><h3>ℹ️ About</h3><p><b>HARMONY MICROFINANCE</b><br>Built for Money Lenders in Uganda<br>By Isaac Savvy-soft Technologies LTD<br>Tel:0770960837</p></div>
 </div>
 </div>
-</div>
-<div id="receipt"><div class="receipt-paper"><div id="receiptContent"></div><br><div class="no-print" style="display:flex;gap:8px"><button type="button" class="btn btn-green" style="flex:1" onclick="window.print()">🖨️ PRINT NOW</button><button type="button" class="btn btn-red" style="flex:1" onclick="document.getElementById('receipt').style.display='none'">Close</button></div></div></div><script>
+</div><div id="receipt"><div class="receipt-paper"><div id="receiptContent"></div><br><div class="no-print" style="display:flex;gap:8px"><button type="button" class="btn btn-green" style="flex:1" onclick="window.print()">🖨️ PRINT NOW</button><button type="button" class="btn btn-red" style="flex:1" onclick="document.getElementById('receipt').style.display='none'">Close</button></div></div></div><script>
 var STORAGE_KEY='harmony_pro_v8';
 var DB={clients:[],loans:[],payments:[],set:{company:"HARMONY MICROFINANCE ENTERPRISE",phone:"0784748006",manager:"Isaac Savvy - Manager",address:"Kampala, Uganda",pass:"1234"}};
 try{var saved=localStorage.getItem(STORAGE_KEY); if(saved){var parsed=JSON.parse(saved); if(parsed.clients) DB=parsed;}}catch(e){}
 try{var oldKeys=['harmony_final_fixed_v7','harmony_pro_v5_final','harmony_pro_v5_fixed','harmony_pro_v6','harmony_v7']; for(var ok=0;ok<oldKeys.length;ok++){var ov=localStorage.getItem(oldKeys[ok]); if(ov && DB.clients.length==0){var op=JSON.parse(ov); DB.clients=op.clients||[]; DB.loans=op.loans||[]; DB.payments=op.payments||[]; if(op.set && op.set.company) DB.set.company=op.set.company; DB.set.pass='1234'; saveDB(); break;}}}catch(e){}
 function fmt(n){n=Number(n||0); return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,",");}
-function uid(){return Math.random().toString(36).substr(2,5).toUpperCase();}
-function saveDB(){localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));}
+function uid(){return Math.random().toString(36).substr(2,5).toUpperCase();}function saveDB(){localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));}
 function showPage(id){var all=document.querySelectorAll('[id^=page-]'); for(var i=0;i<all.length;i++) all[i].style.display='none'; document.getElementById('page-'+id).style.display='block'; document.getElementById('nav').classList.remove('open'); if(id=='defaulters') renderDefaulters(); if(id=='whatsapp') renderWAList();}
 function autoCalcLoan(){var amt=Number(document.getElementById('lAmount').value||0); var intr=Number(document.getElementById('lInterest').value||20); var toPay=Math.round(amt*(1+intr/100)); document.getElementById('calcLoanBox').innerHTML='Amount: UGX '+fmt(amt)+' + Interest '+fmt(toPay-amt)+' = <b>TOTAL: '+fmt(toPay)+'</b>';}
 function autoCalcPay(){var lid=document.getElementById('pLoan').value; if(!lid){document.getElementById('calcPayBox').innerHTML='Select loan'; return;} var loan=null; for(var i=0;i<DB.loans.length;i++){if(DB.loans[i].id==lid){loan=DB.loans[i]; break;}} if(!loan) return; var paid=0; for(var j=0;j<DB.payments.length;j++){if(DB.payments[j].lid==lid) paid+=Number(DB.payments[j].amount);} var bal=loan.toPay-paid; var newAmt=Number(document.getElementById('pAmount').value||0); document.getElementById('calcPayBox').innerHTML='Current Balance: UGX '+fmt(bal)+' | After payment: <b>UGX '+fmt(bal-newAmt)+'</b>';}
@@ -142,8 +168,8 @@ function deleteClient(id){if(!confirm('Delete this client?')) return; var n=[]; 
 function showReceipt(body){document.getElementById('receiptContent').innerHTML=body; document.getElementById('receipt').style.display='flex';}
 function exportExcel(){var csv='\uFEFFHARMONY EXPORT\n\nCLIENTS\nNo,Name,Phone\n'; for(var i=0;i<DB.clients.length;i++){csv+=(i+1)+',"'+DB.clients[i].name+'",'+DB.clients[i].phone+'\n';} csv+='\nLOANS\nID,Client,Amount,ToPay,Paid,Balance,Due,Status\n'; for(var i=0;i<DB.loans.length;i++){var l=DB.loans[i]; var paid=getLoanPaid(l.id); csv+=l.id+',"'+l.clientName+'",'+l.amount+','+l.toPay+','+paid+','+(l.toPay-paid)+','+l.dueDate+','+(l.toPay-paid<=0?'CLEARED':'ACTIVE')+'\n';} csv+='\nPAYMENTS\nDate,Client,Amount,Loan\n'; for(var i=0;i<DB.payments.length;i++){var p=DB.payments[i]; csv+=p.date+',"'+p.clientName+'",'+p.amount+','+p.lid+'\n';} var blob=new Blob([csv],{type:'text/csv'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='HARMONY_Export.csv'; document.body.appendChild(a); a.click(); document.body.removeChild(a); alert('✅ Exported!');}
 function backupData(){var blob=new Blob([JSON.stringify(DB)],{type:'application/json'}); var url=URL.createObjectURL(blob); var a=document.createElement('a'); a.href=url; a.download='HARMONY_Backup.json'; document.body.appendChild(a); a.click(); document.body.removeChild(a); alert('✅ Backup Downloaded!');}
-function saveSettings(){DB.set.company=document.getElementById('sCompany').value; DB.set.phone=document.getElementById('sPhone').value; DB.set.manager=document.getElementById('sManager').value; var np=document.getElementById('sPass').value.trim(); if(np) DB.set.pass=np; saveDB(); document.getElementById('curPass').innerHTML=DB.set.pass; alert('✅ Settings Saved! Note: Login button still uses 1234/9999 - use FORCE OPEN if you change password');}
+function saveSettings(){DB.set.company=document.getElementById('sCompany').value; DB.set.phone=document.getElementById('sPhone').value; DB.set.manager=document.getElementById('sManager').value; var np=document.getElementById('sPass').value.trim(); if(np) DB.set.pass=np; saveDB(); document.getElementById('curPass').innerHTML=DB.set.pass; alert('✅ Settings Saved!');}
 try{document.getElementById('lDate').value=new Date().toISOString().split('T')[0]; document.getElementById('pDate').value=new Date().toISOString().split('T')[0]; document.getElementById('reportDate').value=new Date().toISOString().split('T')[0]; document.getElementById('sCompany').value=DB.set.company; document.getElementById('sPhone').value=DB.set.phone; document.getElementById('sManager').value=DB.set.manager; document.getElementById('curPass').innerHTML=DB.set.pass; renderAll();}catch(e){alert('Error: '+e.message);}
 </script>
 </body>
-</html>
+  </html>
